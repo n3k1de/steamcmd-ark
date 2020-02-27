@@ -1,25 +1,30 @@
 FROM netherkids/steamcmd
 MAINTAINER NetherKidsDE <git@netherkids.de>
 
-EXPOSE 27015/tcp 27015/udp 27005/tcp 27005/udp 27020/udp
+EXPOSE 27015/udp 7777/udp 7778/udp 27020/tcp
 
 ENV GAME gmod \
     SERVERDIR /opt/server \
     PORT=27015 \
-    CLIENTPORT=27005 \
+    CLIENTPORT=7777 \
+    RCONPORT=27020
     MAXPLAYERS=4 \
-    GAMEMODE=sandbox \
-    MAP=gm_construct \
+    MAP=TheIsland \
     PASSWD="" \
-    RCONPASSWD="" \
+    ADMINPASSWD="" \
     WORKSHOPCOLLECTION="" \
     APIKEY="" \
     SERVERACCOUNT=""
 
 COPY --chown=steam:steam /entrypoint.sh /
 
-RUN chmod 0775 /opt/ /entrypoint.sh && chown steam.steam /opt/ /entrypoint.sh && \
-    su steam -c "mkdir -p ${SERVERDIR} && cd ${STEAMCMDDIR} && ${STEAMCMDDIR}/steamcmd.sh +login anonymous +quit"
+RUN apt-get install glibc.i686 libstdc++.i686 ncurses-libs.i686 && \
+    chmod 0775 /opt/ /entrypoint.sh && chown steam.steam /opt/ /entrypoint.sh && \
+    su steam -c "mkdir -p ${SERVERDIR} && cd ${STEAMCMDDIR} && ${STEAMCMDDIR}/steamcmd.sh +login anonymous +quit" && \
+    echo "fs.file-max=100000" >> /etc/sysctl.conf && \
+    echo "*               soft    nofile          1000000" >> /etc/security/limits.conf && \
+    echo "*               hard    nofile          1000000" >> /etc/security/limits.conf && \
+    echo "session required pam_limits.so" >> /etc/pam.d/common-session && \
 
 # RUN chmod 0775 /opt/entrypoint.sh && chown steam.steam /opt/entrypoint.sh
 
