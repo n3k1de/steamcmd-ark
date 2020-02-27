@@ -15,23 +15,9 @@ else
   fi
 fi
 
+${STEAMCMDDIR}/steamcmd.sh +@sSteamCmdForcePlatformType linux +login anonymous \
++force_install_dir "${SERVERDIR}/ark/" +app_update 376030 validate \
+
 # server start
-su steam -c "cd ${SERVERDIR}/gmod/
-  ./srcds_run \
-  -game garrysmod \
-  -console -nobreakpad -usercon -secure -debug \
-  -authkey ${APIKEY} \
-  -port ${PORT} \
-  -ip "localhost" \
-  +port ${PORT} \
-  +clientport ${CLIENTPORT} \
-  +maxplayers ${MAXPLAYERS} \
-  +map ${MAP} \
-  +sv_setsteamaccount ${SERVERACCOUNT} \
-  +gamemode ${GAMEMODE} \
-  +sv_password ${PASSWD} \
-  +rcon_password ${RCONPASSWD} \
-  +hostname ${HOSTNAME} \
-  +host_workshop_collection ${WORKSHOPCOLLECTION} \
-  -net_port_try 1 \
-  -exec server.cfg"
+su steam -c "cd ${SERVERDIR}/ark/
+  ./ShooterGame/Binaries/Linux/ShooterGameServer ${MAP}?listen?Multihome=0.0.0.0?SessionName=${HOSTNAME}?MaxPlayers=${MAXPLAYERS}?QueryPort=${QUERYPORT}?RCONPort=${RCONPORT}?Port=${CLIENTPORT}?ServerPassword=${PASSWD}?ServerAdminPassword=${ADMINPASSWD} -server -log"
