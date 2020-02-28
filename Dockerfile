@@ -7,7 +7,7 @@ ENV GAME gmod \
     SERVERDIR /opt/server \
     PORT=27015 \
     CLIENTPORT=7777 \
-    RCONPORT=27020
+    RCONPORT=27020 \
     MAXPLAYERS=4 \
     MAP=TheIsland \
     PASSWD="" \
