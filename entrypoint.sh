@@ -17,6 +17,7 @@ fi
 
 ${STEAMCMDDIR}/steamcmd.sh +@sSteamCmdForcePlatformType linux +login anonymous \
 +force_install_dir "${SERVERDIR}/ark/" +app_update 376030 validate \
++quit
 
 # server start
 su steam -c "cd ${SERVERDIR}/ark/
