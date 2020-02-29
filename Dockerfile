@@ -4,7 +4,7 @@ MAINTAINER NetherKidsDE <git@netherkids.de>
 EXPOSE 27015/udp 7777/udp 7778/udp 27020/tcp
 
 ENV GAME ark \
-    SERVERNAME="ark server" \
+    SERVERNAME="ark_server" \
     SERVERDIR /opt/server \
     PORT=27015 \
     CLIENTPORT=7777 \
