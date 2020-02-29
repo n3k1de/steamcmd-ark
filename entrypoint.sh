@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ulimit -n 2048‬
+ulimit -n 100000‬
 cd ${STEAMCMDDIR}
 
 if [ -e "/home/steam/.steam/sdk32/steamclient.so" ]
