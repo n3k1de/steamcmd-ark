@@ -3,7 +3,7 @@
 ulimit -n 100000‬
 cd ${STEAMCMDDIR}
 
-chown steam.steam -R ${STEAMCMDDIR}
+chown steam.steam -R /opt/
 
 if [ -e "/home/steam/.steam/sdk32/steamclient.so" ]
 then
