@@ -17,9 +17,9 @@ else
   fi
 fi
 
-su steam -c "${STEAMCMDDIR}/steamcmd.sh +@sSteamCmdForcePlatformType linux +login anonymous
+${STEAMCMDDIR}/steamcmd.sh +@sSteamCmdForcePlatformType linux +login anonymous
 +force_install_dir ${SERVERDIR}/ark/ +app_update 376030 validate
-+quit"
++quit
 echo "---"
 
 # server start
