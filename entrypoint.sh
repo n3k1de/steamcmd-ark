@@ -22,4 +22,4 @@ echo "---"
 
 # server start
 su steam -c "cd ${SERVERDIR}/ark/
-  ./ShooterGame/Binaries/Linux/ShooterGameServer ${MAP}?listen?Multihome=0.0.0.0?SessionName=${HOSTNAME}?MaxPlayers=${MAXPLAYERS}?QueryPort=${QUERYPORT}?RCONPort=${RCONPORT}?Port=${CLIENTPORT}?ServerPassword=${PASSWD}?ServerAdminPassword=${ADMINPASSWD} -server -log"
+  ./ShooterGame/Binaries/Linux/ShooterGameServer ${MAP}?listen?Multihome=0.0.0.0?SessionName=${SERVERNAME}?MaxPlayers=${MAXPLAYERS}?QueryPort=${QUERYPORT}?RCONPort=${RCONPORT}?Port=${CLIENTPORT}?ServerPassword=${PASSWD}?ServerAdminPassword=${ADMINPASSWD} -server -log"
