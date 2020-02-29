@@ -3,6 +3,8 @@
 ulimit -n 100000‬
 cd ${STEAMCMDDIR}
 
+chown steam.steam /opt/ ${STEAMCMDDIR}
+
 if [ -e "/home/steam/.steam/sdk32/steamclient.so" ]
 then
   echo "steamclient.so found."
@@ -15,11 +17,10 @@ else
   fi
 fi
 
-${STEAMCMDDIR}/steamcmd.sh +@sSteamCmdForcePlatformType linux +login anonymous \
-+force_install_dir "${SERVERDIR}/ark/" +app_update 376030 validate \
-+quit
+su steam -c "${STEAMCMDDIR}/steamcmd.sh +@sSteamCmdForcePlatformType linux +login anonymous \
++force_install_dir ${SERVERDIR}/ark/ +app_update 376030 validate \
++quit"
 echo "---"
-chown steam.steam /opt/
 
 # server start
 su steam -c "cd ${SERVERDIR}/ark/
