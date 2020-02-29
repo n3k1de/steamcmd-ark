@@ -3,14 +3,14 @@ MAINTAINER NetherKidsDE <git@netherkids.de>
 
 EXPOSE 27015/udp 7777/udp 7778/udp 27020/tcp
 
-ENV GAME ark \
+ENV GAME="ark" \
     SERVERNAME="ark_server" \
-    SERVERDIR /opt/server \
-    PORT=27015 \
-    CLIENTPORT=7777 \
-    RCONPORT=27020 \
-    MAXPLAYERS=4 \
-    MAP=TheIsland \
+    SERVERDIR="/opt/server" \
+    PORT="27015" \
+    CLIENTPORT="7777" \
+    RCONPORT="27020" \
+    MAXPLAYERS="8" \
+    MAP="TheIsland" \
     PASSWD="" \
     ADMINPASSWD="" \
     WORKSHOPCOLLECTION="" \
