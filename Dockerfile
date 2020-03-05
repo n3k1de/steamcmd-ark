@@ -11,6 +11,7 @@ ENV GAME="ark" \
     RCONPORT="27020" \
     MAXPLAYERS="8" \
     MAP="TheIsland" \
+    RCON="true" \
     PASSWD="" \
     ADMINPASSWD="" \
     WORKSHOPCOLLECTION="" \
