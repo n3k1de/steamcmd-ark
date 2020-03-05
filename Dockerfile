@@ -6,8 +6,8 @@ EXPOSE 27015/udp 7777/udp 7778/udp 27020/tcp
 ENV GAME="ark" \
     SERVERNAME="ark_server" \
     SERVERDIR="/opt/server" \
-    PORT="27015" \
-    CLIENTPORT="7777" \
+    QUERYPORT="27015" \
+    PORT="7777" \
     RCONPORT="27020" \
     MAXPLAYERS="8" \
     MAP="TheIsland" \
