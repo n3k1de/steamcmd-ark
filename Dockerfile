@@ -13,10 +13,7 @@ ENV GAME="ark" \
     MAP="TheIsland" \
     RCON="True" \
     PASSWD="" \
-    ADMINPASSWD="" \
-    WORKSHOPCOLLECTION="" \
-    APIKEY="" \
-    SERVERACCOUNT=""
+    ADMINPASSWD=""
 
 COPY --chown=steam:steam /entrypoint.sh /
 
