@@ -21,5 +21,4 @@ ${STEAMCMDDIR}/steamcmd.sh +@sSteamCmdForcePlatformType linux +login anonymous \
 +quit
 
 # server start
-su steam -c "cd ${SERVERDIR}/ark/ &&
-  ./ShooterGame/Binaries/Linux/ShooterGameServer ${MAP}?listen?Multihome=0.0.0.0?SessionName=${SERVERNAME}?MaxPlayers=${MAXPLAYERS}?ServerPassword=${PASSWD} -server -log"
+su steam -c "cd ${SERVERDIR}/ark/ && ./ShooterGame/Binaries/Linux/ShooterGameServer ${MAP}?listen?Multihome=0.0.0.0?SessionName=${SERVERNAME}?MaxPlayers=${MAXPLAYERS}?QueryPort=${QUERYPORT}?RCONPort=${RCONPORT}?Port=${PORT}?RCONEnabled=${RCON}?ServerAdminPassword=${ADMINPASSWD}?ServerPassword=${PASSWD} -server -log"
