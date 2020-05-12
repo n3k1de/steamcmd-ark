@@ -15,10 +15,10 @@ ENV GAME="ark" \
     PASSWD="" \
     ADMINPASSWD=""
 
-COPY --chown=steam:steam /entrypoint.sh /
+COPY --chown=${USER}:${GROUP} /entrypoint.sh /
 
-RUN chmod 0775 /opt/ /entrypoint.sh && chown steam.steam /opt/ /entrypoint.sh && \
-    su steam -c "mkdir -p ${SERVERDIR} && cd ${STEAMCMDDIR} && ${STEAMCMDDIR}/steamcmd.sh +login anonymous +quit" && \
+RUN chmod 0775 /opt/ /entrypoint.sh && chown ${USER}.${GROUP} /opt/ /entrypoint.sh && \
+    su ${USER} -c "mkdir -p ${SERVERDIR} && cd ${STEAMCMDDIR} && ${STEAMCMDDIR}/steamcmd.sh +login anonymous +quit" && \
     echo "fs.file-max=100000" >> /etc/sysctl.conf && \
     echo "* soft nofile 1000000" >> /etc/security/limits.conf && \
     echo "* hard nofile 1000000" >> /etc/security/limits.conf && \
