@@ -1,5 +1,5 @@
 FROM netherkids/steamcmd
-MAINTAINER NetherKidsDE <docker@netherkids.de>
+LABEL version="0.0.1" maintainer="NetherKids <docker@netherkids.de>"
 
 EXPOSE 27015/udp 7777/udp 7778/udp 32330/tcp
 
