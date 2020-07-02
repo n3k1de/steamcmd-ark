@@ -17,7 +17,7 @@ else
 fi
 
 ${STEAMCMDDIR}/steamcmd.sh +@sSteamCmdForcePlatformType linux +login anonymous \
-+force_install_dir ${SERVERDIR}/ark/ +app_update 376030 \
++force_install_dir ${SERVERDIR}/ark_server/ +app_update 376030 \
 +quit
 
 # server start
