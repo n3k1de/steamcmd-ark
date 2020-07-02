@@ -12,7 +12,7 @@ ENV GAME="ark" \
     MAP="TheIsland" \
     RCON="True" \
     PASSWD="" \
-    ADMINPASSWD=""
+    RCONPASSWD=""
 
 COPY --chown=${USER}:${GROUP} /entrypoint.sh /
 
