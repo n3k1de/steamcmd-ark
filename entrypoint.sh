@@ -2,7 +2,7 @@
 
 ulimit -n 100000‬
 cd ${STEAMCMDDIR}
-chown steam.steam -R /opt/
+chown ${USER}.${USER} -R /opt/
 
 if [ -e "/home/steam/.steam/sdk32/steamclient.so" ]
 then
@@ -21,4 +21,4 @@ ${STEAMCMDDIR}/steamcmd.sh +@sSteamCmdForcePlatformType linux +login anonymous \
 +quit
 
 # server start
-su steam -c "cd ${SERVERDIR}/ark/ && ./ShooterGame/Binaries/Linux/ShooterGameServer ${MAP}?listen?Multihome=0.0.0.0?SessionName=${SERVERNAME}?MaxPlayers=${MAXPLAYERS}?QueryPort=${QUERYPORT}?RCONPort=${RCONPORT}?Port=${PORT}?RCONEnabled=${RCON}?ServerAdminPassword=${ADMINPASSWD}?ServerPassword=${PASSWD} -server -log"
+su ${USER} -c "cd ${SERVERDIR}/ark/ && ./ShooterGame/Binaries/Linux/ShooterGameServer ${MAP}?listen?Multihome=0.0.0.0?SessionName=${SERVERNAME}?MaxPlayers=${MAXPLAYERS}?QueryPort=${QUERYPORT}?RCONPort=${RCONPORT}?Port=${PORT}?RCONEnabled=${RCON}?ServerAdminPassword=${ADMINPASSWD}?ServerPassword=${PASSWD} -server -log"
