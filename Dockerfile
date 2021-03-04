@@ -15,7 +15,8 @@ ENV GAME="ark" \
     RCONPASSWD=""
 
 COPY --chown=${USER}:${GROUP} /entrypoint.sh /
-COPY --chown=${USER}:${GROUP} /SourceQuery.py /
+COPY --chown=${USER}:${GROUP} https://raw.githubusercontent.com/NetherKids/ServerManagement/main/query.py /opt
+COPY --chown=${USER}:${GROUP} https://raw.githubusercontent.com/NetherKids/ServerManagement/main/rcon.py /opt
 
 HEALTHCHECK  --interval=60s --timeout=60s CMD python3 /SourceQuery.py ${QUERYPORT}
 
