@@ -4,7 +4,7 @@ ulimit -n 100000‬
 cd ${STEAMCMDDIR}
 chown ${USER}.${USER} -R /opt/
 
-trap "/opt/rcon.py localhost ${QUERYPORT} ${RCONPASSWD} exit" INT TERM
+trap "/opt/rcon.py localhost ${QUERYPORT} ${RCONPASSWD} saveworld; /opt/rcon.py localhost ${QUERYPORT} ${RCONPASSWD} doexit" INT TERM
 
 if [ -e "/home/steam/.steam/sdk32/steamclient.so" ]
 then
