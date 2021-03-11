@@ -1,13 +1,13 @@
 FROM netherkids/steamcmd:unstable
 
-EXPOSE 27015/udp 7777/udp 7778/udp 32330/tcp
+EXPOSE 27015/udp 7777/udp 7778/udp 27020/tcp
 
 ENV GAME="ark" \
     SERVERNAME="ark_server" \
     SERVERDIR="/opt/server" \
     QUERYPORT="27015" \
     PORT="7777" \
-    RCONPORT="32330" \
+    RCONPORT="27020" \
     MAXPLAYERS="12" \
     MAP="TheIsland" \
     RCON="True" \
