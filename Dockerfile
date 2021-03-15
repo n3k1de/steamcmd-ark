@@ -15,8 +15,8 @@ ENV GAME="ark" \
     RCONPASSWD=""
 
 COPY --chown=${USER}:${GROUP} /entrypoint.sh /
-ADD https://raw.githubusercontent.com/NetherKids/ServerManagement/main/query.py /opt/query.py
-ADD https://raw.githubusercontent.com/NetherKids/ServerManagement/main/rcon.py /opt/rcon.py
+ADD https://raw.githubusercontent.com/NetherKids/steamcmd/master/query.py /opt/query.py
+ADD https://raw.githubusercontent.com/NetherKids/steamcmd/main/rcon.py /opt/rcon.py
 
 HEALTHCHECK  --interval=60s --timeout=60s CMD python3 /opt/query.py localhost ${QUERYPORT}
 
