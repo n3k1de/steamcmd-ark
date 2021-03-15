@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ulimit -n 100000‬
+# ulimit -n 100000‬
 cd ${STEAMCMDDIR}
 chown ${USER}.${USER} -R /opt/
 
@@ -8,14 +8,14 @@ trap "/opt/rcon.py localhost ${QUERYPORT} ${RCONPASSWD} saveworld\\ndoexit" INT 
 
 if [ -e "/home/steam/.steam/sdk32/steamclient.so" ]
 then
-  echo "steamclient.so found."
+    echo "steamclient.so found."
 else
-  echo "steamclient.so not found."
-  su steam -c "ln -s ${STEAMCMDDIR}/linux32/steamclient.so ~/.steam/sdk32/steamclient.so"
-  if [ -e "/home/steam/.steam/sdk32/steamclient.so" ]
-  then
-    echo "steamclient.so link created."
-  fi
+    echo "steamclient.so not found."
+    su steam -c "ln -s ${STEAMCMDDIR}/linux32/steamclient.so ~/.steam/sdk32/steamclient.so"
+    if [ -e "/home/steam/.steam/sdk32/steamclient.so" ]
+    then
+        echo "steamclient.so link created."
+    fi
 fi
 
 ${STEAMCMDDIR}/steamcmd.sh +@sSteamCmdForcePlatformType linux +login anonymous \
