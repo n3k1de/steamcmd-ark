@@ -15,10 +15,10 @@ ENV GAME="ark" \
     RCONPASSWD=""
 
 COPY --chown=${USER}:${GROUP} /entrypoint.sh /
-ADD https://raw.githubusercontent.com/NetherKids/steamcmd/master/manage/query.py /opt/query.py
-ADD https://raw.githubusercontent.com/NetherKids/steamcmd/master/manage/rcon.py /opt/rcon.py
+ADD https://raw.githubusercontent.com/NetherKids/steamcmd/master/manage/query.py /opt/manage/query.py
+ADD https://raw.githubusercontent.com/NetherKids/steamcmd/master/manage/rcon.py /opt/manage/rcon.py
 
-HEALTHCHECK  --interval=60s --timeout=60s CMD python3 /opt/query.py localhost ${QUERYPORT}
+HEALTHCHECK  --interval=60s --timeout=60s CMD python3 /opt/manage/query.py localhost ${QUERYPORT}
 
 RUN chmod 0775 /opt/ /entrypoint.sh && chown ${USER}.${GROUP} /opt/ /entrypoint.sh && \
     su ${USER} -c "mkdir -p ${SERVERDIR} && cd ${STEAMCMDDIR} && ${STEAMCMDDIR}/steamcmd.sh +login anonymous +quit" && \
