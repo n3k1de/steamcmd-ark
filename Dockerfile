@@ -22,6 +22,7 @@ HEALTHCHECK  --interval=60s --timeout=60s CMD python3 /opt/query.py localhost ${
 
 RUN chmod 0775 /opt/ /entrypoint.sh && chown ${USER}.${GROUP} /opt/ /entrypoint.sh && \
     su ${USER} -c "mkdir -p ${SERVERDIR} && cd ${STEAMCMDDIR} && ${STEAMCMDDIR}/steamcmd.sh +login anonymous +quit" && \
+    su ${USER} -c "ln -s ${STEAMCMDDIR}/linux32/steamclient.so ~/.steam/sdk32/steamclient.so" && \
     echo "fs.file-max=100000" >> /etc/sysctl.conf && \
     echo "* soft nofile 1000000" >> /etc/security/limits.conf && \
     echo "* hard nofile 1000000" >> /etc/security/limits.conf && \
