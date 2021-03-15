@@ -1,4 +1,4 @@
-FROM netherkids/steamcmd:unstable
+FROM netherkids/steamcmd
 
 EXPOSE 27015/udp 7777/udp 7778/udp 27020/tcp
 
