@@ -4,7 +4,13 @@
 cd ${STEAMCMDDIR}
 chown ${USER}.${USER} -R /opt/
 
-trap "/opt/manage/rcon.py localhost ${QUERYPORT} ${RCONPASSWD} saveworld\\ndoexit" INT TERM
+function stop_server {
+    /opt/manage/rcon.py localhost ${QUERYPORT} ${RCONPASSWD} saveworld
+    /opt/manage/rcon.py localhost ${QUERYPORT} ${RCONPASSWD} doexit
+}
+
+trap stop_server INT
+trap stop_server TERM
 
 if [ -e "/home/steam/.steam/sdk32/steamclient.so" ]
 then
